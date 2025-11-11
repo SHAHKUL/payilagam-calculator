@@ -70,7 +70,6 @@ function App() {
       setMessage("You Grade is D");
       return;
     }
-   
   };
 
   const handleTotal = () => {
@@ -98,7 +97,12 @@ function App() {
           <input
             value={text}
             type="number"
-            onChange={(e) => setText(e.target.value)}
+            onChange={(e) => {
+              const value = Number(e.target.value);
+              if (value >= 0 && value <= 100) {
+                setText(e.target.value);
+              }
+            }}
             className="mark-calculator-number-input"
           />
         </div>
